@@ -14,7 +14,7 @@ int main() {
     omni.printCameraPath();
     omni.getIndex();
 
-    std::cout << "Vision Access" <<std::endl;
+    std::cout << "Vision Access" << std::endl;
     Vision vision{};
     vision.setCamera(&omni);
     vision.processImage();

@@ -9,10 +9,12 @@
 
 class Vision {
 public:
-    void setCamera(Camera* camera);
+    void setCamera(Camera *camera);
+
     void processImage();
 
 private:
     Camera *_currentCamera;
 };
+
 #endif //WARRIOR_VISION_H

@@ -8,6 +8,7 @@
 class Serial {
 public:
     void init();
+
     void setBaudRate(int baudRate);
 
 private:

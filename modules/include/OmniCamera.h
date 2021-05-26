@@ -12,6 +12,7 @@ public:
     std::string getCameraPath() override {
         return "Camera Omni";
     }
+
     void getIndex();
 };
 

@@ -6,9 +6,9 @@
 #include <iostream>
 
 void Camera::print() {
-    std::cout << "Halo from camera" <<std::endl;
+    std::cout << "Halo from camera" << std::endl;
 }
 
 void Camera::printCameraPath() {
-    std::cout << "Camera "+getCameraPath() << std::endl;
+    std::cout << "Camera " + getCameraPath() << std::endl;
 }

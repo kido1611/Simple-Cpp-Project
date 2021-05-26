@@ -7,5 +7,5 @@
 #include <string>
 
 void OmniCamera::getIndex() {
-    std::cout << "index" <<std::endl;
+    std::cout << "index" << std::endl;
 }

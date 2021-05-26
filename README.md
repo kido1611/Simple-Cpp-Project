@@ -1,5 +1,4 @@
 # Simple C++ Project
-------
 Simple C++ project with CMake build system. This project included with separated library and modules for example.
 
 ## How to use

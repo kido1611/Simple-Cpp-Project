@@ -1,22 +1,39 @@
-# build program on production mode
-build:
-    cmake -S . -B build
-    cmake --build build
+[doc("Show this help message")]
+help:
+  just -l
 
-# build program on dev mode
-dev:
-    cmake -S . -B build -DCMAKE_BUILD_TYPE=debug
-    cmake --build build
+[doc("Configure CMake")]
+cmake:
+  cmake -S . -B build -G "Ninja Multi-Config"
 
-# clean build directory
+[doc("Deleting build directory")]
 clean:
-    rm -rf build/
+  rm -rf build/
 
-# run application
-run NAME: build
-    ./build/{{NAME}}
+[doc("Build debug app")]
+build_debug: cmake
+  cmake --build build --config Debug
 
-cpplint:
-    cpplint --recursive src
-    cpplint --recursive include
-    cpplint --recursive libs
+alias build := build_debug
+
+[doc("Build release app")]
+build_release: cmake
+  cmake --build build --config Release
+
+[doc("Update CPM")]
+update_cpm:
+  scripts/update_cpm.sh
+
+[doc("Run debug app")]
+run_debug NAME: build_debug
+  build/bin/Debug/{{NAME}}
+
+alias run := run_debug
+
+[doc("Run release app")]
+run_release NAME: build_release
+  build/bin/Release/{{NAME}}
+
+lint:
+    cpplint --filter=-build/include_order --recursive apps
+    cpplint --filter=-build/include_order --recursive libs

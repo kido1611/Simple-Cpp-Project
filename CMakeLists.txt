@@ -1,13 +1,20 @@
 cmake_minimum_required(VERSION 3.20)
-project(main)
+project(warrior VERSION 1.0)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_subdirectory(libs/foo)
-add_subdirectory(libs/bar)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 
-include_directories(include)
-add_library(foo_bar src/foo_bar.cpp)
+set(BUILD_SHARED_LIBS ON)
 
-add_executable(main src/main.cpp)
-target_link_libraries(main PRIVATE foo_bar foo bar)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS} -g")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS} -O3 -DNDEBUG")
+
+include(${CMAKE_SOURCE_DIR}/cmake/setup.cmake)
+
+add_subdirectory(apps)
+add_subdirectory(libs)
+

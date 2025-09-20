@@ -1,15 +1,9 @@
 //
-// Copyright 2024 Muhammad Abdusy Syukur
+// Copyright 2025 Muhammad Abdusy Syukur
 //
 
-#include <bar.h>
-#include <foo.h>
+#include <bar.hpp>
 
-#include <iostream>
+#include "spdlog/spdlog.h"
 
-void Bar::print() {
-  Foo foo;
-  foo.print();
-
-  std::cout << "Hello from bar lib" << std::endl;
-}
+void Bar::print() { spdlog::info("Hi from Bar"); }

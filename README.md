@@ -39,6 +39,26 @@ This project also has been preloaded with libraries:
 
 > all command can be found inside `justfile`
 
+## How To Add Dependency (CPM)
+
+Dependency can be added in CMakeLists.txt or organize it in cmake/dependnecies.cmake (recommended).
+
+Example:
+
+```cmake
+CPMAddPackage("gh:fmtlib/fmt#11.1.3")
+
+# or
+
+CPMAddPackage(
+  GITHUB_REPOSITORY gabime/spdlog
+  VERSION 1.15.2
+  OPTIONS "SPDLOG_FMT_EXTERNAL 1"
+)
+```
+
+Readmore in [https://github.com/cpm-cmake/CPM.cmake?tab=readme-ov-file#usage](https://github.com/cpm-cmake/CPM.cmake?tab=readme-ov-file#usage)
+
 ## Compile Command
 
 The CMake also generate `compile_commands.json` for LSP.
